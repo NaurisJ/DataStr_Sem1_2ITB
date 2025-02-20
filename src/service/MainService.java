@@ -37,12 +37,54 @@ public class MainService {
 		}
 		
 		System.out.println("---ADD t ----");
+		listforChar.add('t');
 		try
 		{
 			listforChar.print(); // t
 		} catch (Exception e) {
 			
 		}
+		
+		
+		
+		MyList<Integer> listforInt = new MyList<Integer>(3);
+		listforInt.add(2); 
+		listforInt.add(4);
+		listforInt.add(10); 
+		listforInt.add(5); 
+		
+		try {
+			listforInt.print(); 
+			listforInt.add(100, 1); 
+			listforInt.print();
+			
+			listforInt.del(0); 
+			listforInt.print();
+			
+			listforInt.add(4);
+			System.out.println(listforInt.getPos(1)); 
+			System.out.println(Arrays.toString(listforInt.findCh(4))); 
+			
+			listforInt.sort();
+			listforInt.print();
+			
+			listforInt.makeEmpty();
+			listforInt.print(); // neka nebus
+
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		System.out.println("---ADD 5 ----");
+		listforInt.add(5);
+		try
+		{
+			listforInt.print();
+		} catch (Exception e) {
+			
+		}
+		
+		
 		
 
 	}
