@@ -94,6 +94,21 @@ public class MyList {
 		list[counter++] = element;
 	}
 	
+	public void addSomewhere(char element, int pos) throws Exception{
+		if (pos < 0 || pos > counter) {
+//			Exception myExc = new Exception("The index is not accepted");
+			throw new Exception("The index is not accepted");
+//			throw myExc;
+		}
+		if (isFull()) {
+			resize();
+		}
+		
+		list[pos] = element;
+		counter++;
+		
+	}
+	
 	
 	
 	
