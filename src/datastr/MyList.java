@@ -146,18 +146,32 @@ public class MyList {
 		return list[pos];
 	}
 	
-	public int findCh(char element) throws Exception {
+	public int[] findCh(char element) throws Exception {
+		if (isEmpty()) {
+			throw new Exception("The index is not accepted");
+		}
 		
-		int pos = -1;
+		int howManySearched;
 		for (int i = 0; i < counter; i++) {
 			if (list[i] == element) {
-				i = pos;
-				break;
+				howManySearched++;
+				
+			}
+		}
+		
+		int[] indexes = new int[howManySearched];
+		int counterForIndexes = 0;
+		
+		
+		for(int i = 0; i < counter; i++) {
+			if (list[i] == element) {
+				indexes[counterForIndexes] = i;
+				counterForIndexes++;
 			}
 		}
 		
 		
-		return pos;
+		return indexes;
 	}
 	
 	
