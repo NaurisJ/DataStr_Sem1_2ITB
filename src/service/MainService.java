@@ -16,7 +16,7 @@ public class MainService {
 		
 		try {
 			listforChar.print(); // a b c d
-			listforChar.addSomewhere('Z', 1); // a Z b c d
+			listforChar.add('Z', 1); // a Z b c d
 			listforChar.print();
 			
 			listforChar.del(0); // a tiek izdzests

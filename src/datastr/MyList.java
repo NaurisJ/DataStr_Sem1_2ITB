@@ -88,28 +88,38 @@ public class MyList {
 	}
 	
 	public void add(char element) {
-		if (isFull()) {
-			resize();
-		}
-		list[counter++] = element;
-	}
-	
-	public void addSomewhere(char element, int pos) throws Exception{
-		if (pos < 0 || pos > counter) {
-//			Exception myExc = new Exception("The index is not accepted");
-			throw new Exception("The index is not accepted");
-//			throw myExc;
-		}
-		if (isFull()) {
+		if(isFull()) {
 			resize();
 		}
 		
-		for (int i = counter; i > pos; i++) {
+		list[counter] = element;
+		counter++;
+		
+		//list[counter++] = element;
+	}
+	
+	public void add(char element, int index) throws Exception {
+		if(index < 0 || index > counter)
+		{
+			//garais pieraksts
+			//Exception myExc = new Exception("The index is not accepted");
+			//throw myExc;
+			//isais pieraksts
+			throw new Exception("The index is not accepted");
+			
+		}
+		
+		if(isFull()) {
+			resize();
+		}
+		
+		
+		for(int i = counter; i > index; i--) {
 			list[i] = list[i-1];
 		}
 		
 		
-		list[pos] = element;
+		list[index] = element;
 		counter++;
 		
 	}
@@ -122,20 +132,33 @@ public class MyList {
 	// pedejo elementu uzliek uz atstarpi (sis tiks mainits velak pie template)
 	// jasamazina counter par vienu
 	
-	public void del(int pos) throws Exception{
-		if (pos < 0 || pos > counter || isEmpty()) {
-
-			throw new Exception("The index is not accepted");
-		}
+	public void del(int index) throws Exception{
+		//parbaudit, vai saraksts ir tukss un ja ir, metam iznemumu
+				if(isEmpty()) {
+					throw new Exception("List is empty and it is not possible to remove element");
+				}
+				
+			//parbaudit index. Pie nepareiza indeksa izmest iznemumu
+				if(index < 0 || index >= counter)
+				{
+					throw new Exception("The index is not accepted");
+				}
+			//izveidot for ciklu, ar kuru uzkope virsu dzesamajam elementam
+				
+				for(int i = index; i < counter-1; i++)
+				{
+					list[i] = list[i+1];
+				}
+				
+				
+			//pedejao elementu uzliek uz atstarpi (sis tiks mainits velak pie template)
+				list[counter-1] = ' ';	
+			//jasamazina counter par vienu
+				counter--;
+			}
+			
 		
-		for (int i = pos; i < counter; i++) {
-			list[i] = list[i+1];
-		}
-		
-		list[pos] = ' ';
-		counter--;
-		
-	}
+	
 	
 	public char getPos(int pos) throws Exception {
 		if (pos < 0 || pos > counter || isEmpty()) {
