@@ -104,10 +104,25 @@ public class MyList {
 			resize();
 		}
 		
+		for (int i = counter; i > pos; i++) {
+			list[i] = list[i-1];
+		}
+		
+		
 		list[pos] = element;
 		counter++;
 		
 	}
+	
+//	public void del(int pos) throws Exception{
+//		if (pos < 0 || pos > counter || isEmpty()) {
+//
+//			throw new Exception("The index is not accepted");
+//		}
+//		
+//		
+//		
+//	}
 	
 	
 	
