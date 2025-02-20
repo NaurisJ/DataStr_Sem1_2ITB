@@ -195,6 +195,26 @@ public class MyList {
 		list[index2] = temp;
 	}
 	
+	public void print() throws Exception{
+		if (isEmpty()) {
+			throw new Exception("The index is not accepted");
+		}
+		
+		for (int i = 0; i < counter; i++) {
+			System.out.print(list[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	public void makeEmpty() {
+		if (!isEmpty()) {
+			size = DEFAULT_SIZE;
+			counter = 0;
+			list = new char[size];
+			System.gc();
+		}
+	}
+	
 	
 	
 	
