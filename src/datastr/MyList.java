@@ -114,15 +114,51 @@ public class MyList {
 		
 	}
 	
-//	public void del(int pos) throws Exception{
-//		if (pos < 0 || pos > counter || isEmpty()) {
-//
-//			throw new Exception("The index is not accepted");
-//		}
-//		
-//		
-//		
-//	}
+	//TODO
+	// Izveidot funkcijas remove definiciju
+	// parbaudit vai saraksts ir tukss un ja ir, metam iznemumu
+	// parbaudit indeku. Pie nepareiza indeksa izmest iznemumu
+	// izveidot for ciklu, ar kuru uzkope virsu dzesamajam elementam
+	// pedejo elementu uzliek uz atstarpi (sis tiks mainits velak pie template)
+	// jasamazina counter par vienu
+	
+	public void del(int pos) throws Exception{
+		if (pos < 0 || pos > counter || isEmpty()) {
+
+			throw new Exception("The index is not accepted");
+		}
+		
+		for (int i = pos; i < counter; i++) {
+			list[i] = list[i+1];
+		}
+		
+		list[pos] = ' ';
+		counter--;
+		
+	}
+	
+	public char getPos(int pos) throws Exception {
+		if (pos < 0 || pos > counter || isEmpty()) {
+
+			throw new Exception("The index is not accepted");
+		}
+		
+		return list[pos];
+	}
+	
+	public int findCh(char element) throws Exception {
+		
+		int pos = -1;
+		for (int i = 0; i < counter; i++) {
+			if (list[i] == element) {
+				i = pos;
+				break;
+			}
+		}
+		
+		
+		return pos;
+	}
 	
 	
 	
