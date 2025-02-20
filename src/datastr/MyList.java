@@ -82,7 +82,16 @@ public class MyList {
 		list = listNew;
 		
 		System.gc();
+		
+		
 			
+	}
+	
+	public void add(char element) {
+		if (isFull()) {
+			resize();
+		}
+		list[counter++] = element;
 	}
 	
 	
