@@ -3,6 +3,7 @@ package service;
 import java.util.Arrays;
 
 import datastr.MyList;
+import model.Student;
 
 public class MainService {
 
@@ -85,7 +86,53 @@ public class MainService {
 		}
 		
 		
+		System.out.println("---------------------------------------------------");
 		
+		
+		
+		MyList<Student> studentList = new MyList<Student>(1);
+		
+		
+		Student st1 = new Student();
+		Student st2 = new Student("Janis","Berzins");
+		Student st3 = new Student("Anna Paula","Jauka-Nejauka");
+		
+		studentList.add(st1);
+		studentList.add(st2);
+		
+		try
+		{
+			studentList.print(); // Margarita Lopeza, Janis, Anna Paula
+			studentList.add(st3,0);
+			studentList.print();
+			
+			System.out.println(studentList.getPos(0)); // Anna Paula
+			System.out.println(Arrays.toString(studentList.findCh(st2))); // Janis
+			
+			studentList.sort(); // bus problema
+			studentList.print();
+			
+			studentList.del(1);
+			studentList.print();
+			
+			studentList.makeEmpty();
+			studentList.print();
+			
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		System.out.println("---ADD new student ----");
+		studentList.add(new Student("Roberts", "Gudrais"));
+		try
+		{
+			studentList.print();
+		} catch (Exception e) {
+			System.out.println(e);
+			
+		}
 
 	}
 
